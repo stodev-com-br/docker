@@ -3,11 +3,12 @@ FROM ubuntu:16.04
 LABEL maintainer="Geverson R. Sarmento <geverson.sarmento@stodev.com.br>"
 SHELL ["/bin/bash", "-c"]
 
+RUN export DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get install apt-utils -y
-RUN apt-get upgrade -y 
+RUN apt-get install apt-utils vim -y
+RUN apt-get upgrade -y
 RUN apt-get install apache2 apache2-utils -y
-RUN a2enmod ssl proxy
+RUN a2enmod ssl proxy proxy_http
 
 RUN touch /var/log/apache2/apache2.log
 COPY apache2/conf-available/server-name.conf /etc/apache2/conf-available/server-name.conf
