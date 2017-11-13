@@ -12,12 +12,12 @@ RUN apt-get update && \
 RUN pip3 install --upgrade virtualenv
 
 
-RUN adduser --system homeassistant && \
+RUN adduser --system homeassistant --home /opt/homeassistant && \
     addgroup homeassistant && \
     usermod -G dialout -a homeassistant
 
-RUN mkdir /opt/homeassistant && \ 
-    chown -R homeassistant:homeassistant /opt/homeassistant 
+#RUN mkdir /opt/homeassistant && \ 
+#    chown -R homeassistant:homeassistant /opt/homeassistant 
 
 USER homeassistant
 
