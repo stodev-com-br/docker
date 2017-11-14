@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.6
 
 LABEL maintainer="Geverson R. Sarmento <geverson.sarmento@stodev.com.br>"
 SHELL ["/bin/bash", "-c"]
@@ -18,6 +18,8 @@ RUN adduser --system homeassistant --home /opt/homeassistant && \
 
 #RUN mkdir /opt/homeassistant && \ 
 #    chown -R homeassistant:homeassistant /opt/homeassistant 
+
+WORKDIR /opt/homeassistant
 
 USER homeassistant
 
