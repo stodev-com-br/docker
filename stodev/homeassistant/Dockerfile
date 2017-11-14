@@ -25,6 +25,6 @@ RUN python3 -m venv /opt/homeassistant && \
     source /opt/homeassistant/bin/activate && \
     pip3 install --upgrade homeassistant
 
-EXPOSE 3218
+EXPOSE 3218 8123
 
 CMD ["/bin/bash", "-c",  "/opt/homeassistant/bin/hass"]
